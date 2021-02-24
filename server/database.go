@@ -1,6 +1,9 @@
 package server
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 // dbConfig represents the db configuration
 type dbConfig struct {
@@ -14,11 +17,11 @@ type dbConfig struct {
 // BuildDBConfig returns a new DB configuration with the default settings
 func buildDBConfig() *dbConfig {
 	dbConfig := dbConfig{
-		Host:     "my_go_app_db",
+		Host:     os.Getenv("MYSQL_HOST"),
 		port:     3306,
-		User:     "docker",
-		DBName:   "todos-docker",
-		Password: "password",
+		User:     os.Getenv("MYSQL_USER"),
+		DBName:   os.Getenv("MYSQL_DATABASE"),
+		Password: os.Getenv("MYSQL_PASSWORD"),
 	}
 	return &dbConfig
 }
