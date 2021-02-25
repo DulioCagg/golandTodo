@@ -1,0 +1,13 @@
+name: todo golang
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Hello:
+    runs-on: ubuntu-18.08
+    steps:
+      -name: Hello world!
+      run: echo "hello world"
